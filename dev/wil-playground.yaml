@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: abouassi-playground
+  name: wil-playground
   namespace: dev
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: abouassi-playground
+      app: wil-playground
   template:
     metadata:
       labels:
-        app: abouassi-playground
+        app: wil-playground
     spec:
       containers:
-      - name: abouassi-playground
-        image: wil42/playground:v2
+      - name: wil-playground
+        image: wil42/playground:v1
         ports:
         - containerPort: 8888
   
@@ -24,11 +24,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: abouassi-playground-service
+  name: wil-playground-service
   namespace: dev
 spec:
   selector:
-    app: abouassi-playground
+    app: wil-playground
   ports:
   - port: 8888
     targetPort: 8888
